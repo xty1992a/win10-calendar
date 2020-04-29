@@ -44,12 +44,7 @@
         setDisplayMode(mode);
       };
 
-      const setMonth = (isAdd) => () => {
-        const unitMap = {
-          date: "month",
-          month: "year",
-        };
-
+      const handleDate = (isAdd) => () => {
         const setMap = {
           date: {
             value: 1,
@@ -67,16 +62,13 @@
 
         const setter = setMap[displayMode.value];
 
-        /*      const value = isAdd
-          ? dayjs(date.value).add(1, unitMap[displayMode.value])
-          : dayjs(date.value).subtract(1, unitMap[displayMode.value]);*/
         const value = isAdd
           ? dayjs(date.value).add(setter.value, setter.unit)
           : dayjs(date.value).subtract(setter.value, setter.unit);
         setDate(value.toDate());
       };
-      const upward = setMonth(false);
-      const downward = setMonth(true);
+      const upward = handleDate(false);
+      const downward = handleDate(true);
 
       return {
         upward,
