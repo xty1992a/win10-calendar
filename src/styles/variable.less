@@ -1,0 +1,68 @@
+@active-color: #3388ff;
+@blue-color: #6596e1;
+@price-color: #fe9700;
+@red-color: #fd5451;
+@border-color: #E4E7ED;
+
+@f10: 10px;
+@f12: 12px;
+@f14: 14px;
+@f15: 15px;
+@f16: 16px;
+@f17: 17px;
+@f18: 18px;
+
+@normalC: #333;
+@grayC: #999;
+@borderC: #f0f0f0;
+@sunC: #FF9800;
+@priceC: #ff6400;
+@f64C: #f64000;
+@redC: #F44336;
+@dangerC: #FF4444;
+@backC: #f7f7f7;
+@deepBackC: #f0f0f0;
+@activeC: #1291F3;
+@wxC: #25B33D;
+@gapW: 10px;
+@delay: .3s;
+
+@text-color-dark: #000000;
+@text-color-primary: #333333;
+@text-color-black: #414141;
+@text-color-gray: #909399;
+@text-color-white: #ffffff;
+@text-color-ashen: #878787;
+@text-color-price: #fd5451;
+
+
+@font-size-huge: 42px;
+@font-size-great: 30px;
+@font-size-large: 28px;
+@font-size-big: 24px;
+@font-size-max: 22px;
+@font-size-normal: 20px;
+@font-size-default: 18px;
+@font-size-small: 16px;
+@font-size-mini: 15px;
+@font-size-micro: 14px;
+
+@border-radius-large: 8px;
+@border-radius-middle: 6px;
+@border-radius-small: 4px;
+@border-radius-mini: 2px;
+
+.blink-line() {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    right: -10px;
+    top: 8px;
+    width: 2px;
+    background-color: @active-color;
+    animation: blink 1s linear infinite;
+  }
+}

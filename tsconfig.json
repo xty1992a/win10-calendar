@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "lib": [
+      "dom",
+      "ES5",
+      "ES2015"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "api/*": ["src/api/*"],
+      "components/*": ["src/components/*"],
+      "assets/*": ["src/assets/*"],
+      "utils/*": ["src/utils/*"]
+    }
+  },
+  "include": [
+   "src/**/*.ts",
+   "src/**/*.tsx",
+   "src/**/*.vue"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

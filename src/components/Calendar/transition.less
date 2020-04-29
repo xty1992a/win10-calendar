@@ -1,0 +1,64 @@
+.out-enter-from {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.out-leave-to {
+  position: absolute;
+  transform: scale(1.5);
+  z-index: 100;
+  opacity: 0;
+  top: 0;
+  background-color: #000;
+}
+
+.out-enter-active {
+  z-index: 1;
+  position: relative;
+
+  transition: transform 0.4s, opacity 0.4s;
+}
+
+.out-leave-active {
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.in-enter-from {
+  position: absolute;
+  top: 0;
+  transform: scale(1.5);
+  z-index: 100;
+  opacity: 0;
+  background-color: #000;
+}
+
+
+.in-leave-to {
+  transform: scale(.2);
+  opacity: 0;
+}
+
+
+.in-enter-active {
+  z-index: 1;
+  position: absolute;
+  transition: transform .2s .2s, opacity .2s .2s;
+}
+
+.in-leave-active {
+  z-index: 1;
+  position: absolute;
+  transition: transform .2s, opacity .2s;
+}
+
+
+.out-enter-active,
+.in-enter-active,
+.in-leave-active,
+.out-leave-active {
+  .date-cell,
+  .month-cell,
+  .year-cell {
+    border-color: transparent !important;
+  }
+}
