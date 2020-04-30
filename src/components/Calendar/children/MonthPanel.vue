@@ -23,19 +23,19 @@ export default {
       setDate(item.toDate());
       setDisplayMode("date");
     };
-	const monthList = computed(() => {
-	  const month0 = dayjs(date.value).month(0);
-	  return Array(16)
-		  .fill(0)
-		  .map((n, i) => month0.add(i, "month"));
-	});
-	const getClass = (item) => {
-	  return [
-		"month-cell",
-		item.month() === dayjs(date.value).month() && " current-month ",
-		item.year() === dayjs(date.value).year() && " current-year ",
-	  ].join(" ");
-	};
+    const monthList = computed(() => {
+      const month0 = dayjs(date.value).month(0);
+      return Array(16)
+        .fill(0)
+        .map((n, i) => month0.add(i, "month"));
+    });
+    const getClass = (item) => {
+      return [
+        "month-cell",
+        item.month() === dayjs(date.value).month() && " current-month ",
+        item.year() === dayjs(date.value).year() && " current-year ",
+      ].join(" ");
+    };
 
     return {
       monthList,
@@ -53,6 +53,7 @@ export default {
     padding: 2px;
   }
   .month-cell {
+    cursor: pointer;
     border: 2px solid #fff;
     display: flex;
     align-items: center;

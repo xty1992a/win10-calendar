@@ -28,9 +28,14 @@ export default {
       (v) => v,
     ]);
     const [date, setDate] = inject("date", [ref(new Date()), (v) => v]);
-    const dateString = computed(() =>
-      (displayMode.value === "date" ? fmtDate : fmtYear)(date.value)
-    );
+    const dateString = computed(() => {
+      const handler = {
+        date: (value) => fmtDate(value),
+        month: (value) => fmtYear(value),
+        year: (value) => `${value.year()} - ${value.add(15, "year").year()}`,
+      };
+      return handler[displayMode.value](dayjs(date.value));
+    });
 
     const setPanelMode = () => {
       const mode =
@@ -87,6 +92,8 @@ export default {
 
   span {
     color: #fff;
+    line-height: 20px;
+    cursor: pointer;
   }
 
   .icon-wrap {

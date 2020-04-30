@@ -24,12 +24,12 @@ export default {
       setDate(item.toDate());
       setDisplayMode("month");
     };
-	const yearList = computed(() => {
-	  const year0 = dayjs(date.value);
-	  return Array(16)
-		  .fill(0)
-		  .map((n, i) => year0.add(i, "year"));
-	});
+    const yearList = computed(() => {
+      const year0 = dayjs(date.value);
+      return Array(16)
+        .fill(0)
+        .map((n, i) => year0.add(i, "year"));
+    });
 
     return {
       yearList,
@@ -46,6 +46,7 @@ export default {
     padding: 2px;
   }
   .year-cell {
+    cursor: pointer;
     border: 2px solid #fff;
     display: flex;
     align-items: center;
