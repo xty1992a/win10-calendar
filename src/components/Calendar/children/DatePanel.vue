@@ -12,6 +12,8 @@
 
 <script>
 import dayjs from "dayjs";
+import lunarPlugin from '@/utils/lunar'
+dayjs.extend(lunarPlugin)
 import { computed, h, inject } from "vue";
 function DateList(props) {
   // 日期数组中间的值,必然是本月
@@ -28,6 +30,7 @@ function DateList(props) {
         <div class="cell-item" key={item.toString()}>
           <div class={getClass(item)}>
             <span>{item.date()}</span>
+            <span class="lunar">{item.isTerm() ? item.formatLunar('tt') : item.formatLunar('DD')}</span>
           </div>
         </div>
       ))}
@@ -82,7 +85,13 @@ function getDateList(date) {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         color: #999;
+
+        .lunar{
+          font-size: 12px;
+          transform: scale(.8);
+        }
       }
       .current-month {
         color: #fff;
