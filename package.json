@@ -9,9 +9,7 @@
   "dependencies": {
     "core-js": "^3.6.4",
     "dayjs": "^1.8.24",
-    "vue": "^3.0.0-beta.1",
-    "vue-router": "^4.0.0-alpha.5",
-    "vuex": "^4.0.0-alpha.1"
+    "vue": "^3.0.0-beta.1"
   },
   "devDependencies": {
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",

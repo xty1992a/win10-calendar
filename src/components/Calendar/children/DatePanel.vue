@@ -12,15 +12,22 @@
 
 <script>
 import dayjs from "dayjs";
-import lunarPlugin from '@/utils/lunar'
-dayjs.extend(lunarPlugin)
-import { computed, h, inject } from "vue";
+import lunarPlugin from "@/utils/lunar";
+dayjs.extend(lunarPlugin);
+import { computed, h, inject, ref } from "vue";
+
+const today = dayjs();
+
 function DateList(props) {
   // 日期数组中间的值,必然是本月
   const middleDay = props.list[Math.ceil(props.list.length / 2)];
   const mDayMonth = middleDay.month();
   const getClass = (item) =>
-    ["date-cell", item.month() === mDayMonth && "current-month"]
+    [
+      "date-cell",
+      item.month() === mDayMonth && "current-month",
+      item.isSame(today, "date") && "today-item",
+    ]
       .filter(Boolean)
       .join(" ");
 
@@ -30,19 +37,23 @@ function DateList(props) {
         <div class="cell-item" key={item.toString()}>
           <div class={getClass(item)}>
             <span>{item.date()}</span>
-            <span class="lunar">{item.isTerm() ? item.formatLunar('tt') : item.formatLunar('DD')}</span>
+            <span class="lunar">
+              {item.isTerm() ? item.formatLunar("tt") : item.formatLunar("DD")}
+            </span>
           </div>
         </div>
       ))}
     </div>
   );
 }
+
 export default {
   name: "date-panel",
   components: { DateList },
-  setup(props, ctx) {
-    const [date] = inject("date");
+  setup() {
+    const [date] = inject("date", [ref(new Date())]);
     const dateList = computed(() => getDateList(date.value));
+
     return {
       dateList,
       weeks: ["日", "一", "二", "三", "四", "五", "六"],
@@ -88,10 +99,16 @@ function getDateList(date) {
         flex-direction: column;
         color: #999;
 
-        .lunar{
+        .lunar {
           font-size: 12px;
-          transform: scale(.8);
+          transform: scale(0.8);
         }
+      }
+      .today-item {
+        border-color: #1291f3;
+        background-color: #1291f3;
+        z-index: 1;
+        position: relative;
       }
       .current-month {
         color: #fff;

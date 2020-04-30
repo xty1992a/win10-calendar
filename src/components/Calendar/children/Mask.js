@@ -10,7 +10,7 @@ export default function Mask(props) {
         position.y - size / 2
       }px)`,
       backgroundImage: isEnter
-        ? `radial-gradient(transparent, rgba(0, 0, 0, 1) 60px, #000)`
+        ? `radial-gradient(transparent, #000 60px, #000)`
         : "",
       backgroundColor: isEnter ? "" : "#000",
       width: size ? size + "px" : "100%",

@@ -16,23 +16,20 @@ export default {
   name: "year-panel",
   setup() {
     const [date, setDate] = inject("date", [ref(new Date()), (v) => v]);
-
-    const yearList = computed(() => {
-      const year0 = dayjs(date.value);
-      return Array(16)
-        .fill(0)
-        .map((n, i) => year0.add(i, "year"));
-    });
-
     const [displayMode, setDisplayMode] = inject("displayMode", [
       ref("date"),
       (v) => v,
     ]);
-
     const pickYear = (item) => {
       setDate(item.toDate());
       setDisplayMode("month");
     };
+	const yearList = computed(() => {
+	  const year0 = dayjs(date.value);
+	  return Array(16)
+		  .fill(0)
+		  .map((n, i) => year0.add(i, "year"));
+	});
 
     return {
       yearList,
