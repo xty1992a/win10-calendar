@@ -7,9 +7,6 @@ const useSvgSpriteLoader = require("./plugins/use-svg-sprite-loader");
 const development = process.env.NODE_ENV === "development";
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-	  ? '/win10-calendar/'
-	  : '/',
   configureWebpack: (config) => {
     useProxy(config);
     useResourcesLoader(config);
