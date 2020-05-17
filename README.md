@@ -1,5 +1,5 @@
 # win10-calendar
-![preview](https://user-gold-cdn.xitu.io/2020/4/30/171c9c0688f2f0c1?imageslim)
+![preview](https://files.1card1.cn/mps/0/20200517/173f8f4c1e304897849d7659e2d69d33.jpg)
 
 一个使用vue3.0API编写的日历组件。功能UI模仿win10自带日历。  
 [preview-link](https://xty1992a.github.io/win10-calendar/index.html)  
