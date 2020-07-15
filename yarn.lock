@@ -7909,7 +7909,7 @@ websocket-driver@>=0.5.1:
   dependencies:
     http-parser-js ">=0.4.0 <0.4.11"
     safe-buffer ">=5.1.0"
-    websocket-extensions ">=0.1.1"
+    websocket-extensions "0.1.4"
 
 websocket-extensions@>=0.1.1:
   version "0.1.3"
