@@ -4,3 +4,4 @@ import "./icons";
 import "./styles/index.less";
 
 createApp(App).mount("#app");
+console.log("start");
