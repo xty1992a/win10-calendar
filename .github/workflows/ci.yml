@@ -1,0 +1,25 @@
+name: deploy page to github.io
+
+on:
+  push:
+      branches:
+        - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          npm run build
+
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@3.5.7
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: master
+          FOLDER: dist
